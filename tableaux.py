@@ -29,13 +29,13 @@ def generer_tab_melange(n):
 
 def unFormatDDN(date):
     ddn = []
-    if date[2] == "/":
+    if "/" in date:
         split = date.split("/")
         ddn = [int(split[i]) for i in range(3)]
-    elif date[2] == ":":
+    elif ":" in date:
         split = date.split(":")
         ddn = [int(split[i]) for i in range(3)]
-    elif date[2] == ".":
+    elif "." in date:
         split = date.split(".")
         ddn = [int(split[i]) for i in range(3)]
     return ddn
