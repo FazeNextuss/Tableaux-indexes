@@ -23,8 +23,55 @@ def generer_tab_decroissant(n):
     
 def generer_tab_melange(n):
     assert n > 0, "n n'est pas positif"
-    
+
     i =  [randint(0,100) for i in range(n)]
     return i
+
+def unFormatDDN(date):
+    ddn = []
+    if date[2] == "/":
+        split = date.split("/")
+        ddn = [int(split[i]) for i in range(3)]
+    elif date[2] == ":":
+        split = date.split(":")
+        ddn = [int(split[i]) for i in range(3)]
+    elif date[2] == ".":
+        split = date.split(".")
+        ddn = [int(split[i]) for i in range(3)]
+    return ddn
+
+def date_num_to_txt(date):
+    mois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre"]
+    tab = unFormatDDN(date)
+    dateLetters = str(tab[0]) + " " + str(mois[tab[1]-1]) +  " " + str(tab[2])
+    return dateLetters
+
+def moyenneTab(notes):
+    nbrNote = 0
+    total = 0 
+    for i in notes:
+        nbrNote +=1
+        total += i
+    moyenne = total / nbrNote
+    return moyenne
+
+def concatenation(tab):
+    concat = ""
+    compteur = 0
+    for champs in tab:
+        compteur += 1
+        if compteur == 1:
+            concat += champs
+        else:
+            concat += " - " + champs
+    return concat
+
+
+        
+        
+
+
+    
+        
         
 
